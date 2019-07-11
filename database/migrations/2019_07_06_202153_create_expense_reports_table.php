@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PlatziTable extends Migration
+class CreateExpenseReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,10 @@ class PlatziTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('expense_reports', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class PlatziTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('expense_reports');
     }
 }
